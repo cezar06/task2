@@ -69,13 +69,16 @@ function App() {
                       ref={provided.innerRef}
                       className="item-box"
                     >
-                      <img src={`data:image/png;base64,${item.image}`} alt={item.name} className="item-image" />
+                      <img
+                        src={'https://task2-1wrd.onrender.com${item.image_path}'}
+                        alt={item.name}
+                        className="item-image"
+                      />
                       <p>{item.name}</p>
                     </li>
                   )}
                 </Draggable>
               ))
-              
             )}
             {provided.placeholder}
           </ul>
