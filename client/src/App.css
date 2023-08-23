@@ -6,12 +6,12 @@
 
 /* Existing styles for the item box */
 .item-box {
-  border: 1px solid #dcdcdc;
-  border-radius: 5px;
-  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust as per your requirement */
+  padding: 10px;
+  border: 1px solid #ccc;
   margin-bottom: 10px;
-  background-color: #f7f7f7;
-  transition: background-color 0.3s;
 }
 
 /* Hover effect for the item box */
@@ -29,4 +29,11 @@ ul {
 list-style-type: none;
 margin: 0;
 padding: 0;
+}
+
+.item-image {
+  width: 50px; /* You can adjust the size as per your requirement */
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px; /* Optional: To make the image corners rounded */
 }

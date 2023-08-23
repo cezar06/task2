@@ -69,11 +69,13 @@ function App() {
                       ref={provided.innerRef}
                       className="item-box"
                     >
+                      <img src={item.image} alt={item.name} className="item-image" />
                       <p>{item.name}</p>
                     </li>
                   )}
                 </Draggable>
               ))
+              
             )}
             {provided.placeholder}
           </ul>
