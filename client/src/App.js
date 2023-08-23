@@ -6,7 +6,7 @@ function App() {
   const [backendData, setbackendData] = useState([]);
 
   useEffect(() => {
-    fetch("/api")
+    fetch("https://task2-1wrd.onrender.com/api")
       .then((response) => response.json())
       .then((data) => setbackendData(data))
       .catch((error) => console.error("Error fetching data:", error));
@@ -21,7 +21,7 @@ function App() {
     const orderedIds = newItems.map((item) => item.id);
 
     try {
-      const response = await fetch("/api/reorder", {
+      const response = await fetch("https://task2-1wrd.onrender.com/api/reorder", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
