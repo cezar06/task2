@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const sqlite3 = require('sqlite3').verbose();
+const cors = require('cors');
 
 const db = new sqlite3.Database('./database.db', sqlite3.OPEN_READWRITE, (err) => {
     if (err) return console.error(err.message);
