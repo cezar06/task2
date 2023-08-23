@@ -6,6 +6,12 @@ const db = new sqlite3.Database('./database.db', sqlite3.OPEN_READWRITE, (err) =
     if (err) return console.error(err.message);
 });
 
+app.use(cors({
+    origin: "https://task2front.onrender.com"
+}
+))
+app.options('*', cors())
+
 app.use(express.json());
 
 app.use((err, req, res, next) => {
