@@ -1,0 +1,32 @@
+/* Styles for the item container */
+.item-container {
+  max-width: 600px;  /* Set the maximum width for the container */
+  margin: 50px auto 0 auto;     /* Center the container on the page */
+}
+
+/* Existing styles for the item box */
+.item-box {
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #f7f7f7;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for the item box */
+.item-box:hover {
+  background-color: #ebebeb;
+}
+
+/* Styles for the paragraph inside the item box */
+.item-box p {
+  margin: 0;  /* Remove default margins */
+  color: #333;
+}
+
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
