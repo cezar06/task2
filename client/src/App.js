@@ -70,7 +70,7 @@ function App() {
                       className="item-box"
                     >
                       <img
-                        src={'https://task2-1wrd.onrender.com${item.image_path}'}
+                        src={`https://task2-1wrd.onrender.com${item.image_path}`}
                         alt={item.name}
                         className="item-image"
                       />
