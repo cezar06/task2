@@ -14,26 +14,37 @@ function App() {
 
   async function handleOnDragEnd(result) {
     if (!result.destination) return;
+
+    // Create a copy of backendData and reorder locally
     const newItems = Array.from(backendData);
     const [reorderedItem] = newItems.splice(result.source.index, 1);
     newItems.splice(result.destination.index, 0, reorderedItem);
 
+    // Optimistically update the UI
+    setbackendData(newItems);
+
     const orderedIds = newItems.map((item) => item.id);
 
     try {
-      const response = await fetch("https://task2-1wrd.onrender.com/api/reorder", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ orderedIds }),
-      });
+      const response = await fetch(
+        "https://task2-1wrd.onrender.com/api/reorder",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ orderedIds }),
+        }
+      );
       const data = await response.json();
-      if (data.message === "Order updated successfully") {
-        setbackendData(newItems);
+      if (data.message !== "Order updated successfully") {
+        // If the server response is not what we expect, revert the change
+        console.error("Failed to update order: unexpected server response");
+        setbackendData(backendData); // Revert to original backendData
       }
     } catch (error) {
       console.error("Failed to update order:", error);
+      setbackendData(backendData); // Revert to original backendData
     }
   }
 
