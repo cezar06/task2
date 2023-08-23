@@ -69,7 +69,7 @@ function App() {
                       ref={provided.innerRef}
                       className="item-box"
                     >
-                      <img src={item.image} alt={item.name} className="item-image" />
+                      <img src={`data:image/png;base64,${item.image}`} alt={item.name} className="item-image" />
                       <p>{item.name}</p>
                     </li>
                   )}
